@@ -44,7 +44,7 @@ class PaypalStandard implements IPaymentGateway
 
 		$totalOccurrences = '';
 		$amount = doubleval($data['md-amount']);
-		$email = 'info.darululoomny@gmail.com';
+		$email = 'someone@gmail.com';
 
 
 		if (!empty($data['md-recurring-duration-length'])) {
@@ -98,7 +98,7 @@ HTML;
 		}
 
 		$amount = doubleval($data['md-amount']);
-		$email = 'info.darululoomny@gmail.com';
+		$email = 'someone@gmail.com';
 
 
 		$html = <<<HTML

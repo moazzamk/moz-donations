@@ -16,7 +16,7 @@ return array(
 		return $obj;
 	},
 	'AuthorizeNetCredentials' => array(
-		'loginId' => '2j7Md4H8',
-		'transactionKey' => '5AU7Ke3u8sD9X7hw'
+		'loginId' => '',
+		'transactionKey' => ''
 	),
 );

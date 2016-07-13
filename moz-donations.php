@@ -61,24 +61,19 @@ function md_donation_success($data)
 
 	$subject = 'Jazakallahu khair for your donation';
 	$body = <<<TEXT
-Assalamu 'alaikum,
+Hi,
 
 Your donation of \${$data['md-amount']} for "{$data['md-reason']}" using {$gatewayLabels[$data['md-gateway']]} has been received. 
 
-Ma'assalam,
-Darul Uloom New York Staff
-
-Tax ID: 11-3443249
-Darul Uloom New York
-8780 153rd St.,
-Jamaica NY 11432
+Best Regards,
+Organization staff
 TEXT;
 
 	mail(
 		$data['md-email'],
 		$subject,
 		$body,
-		'From: Darul Uloom New York <noreply@darululoomny.org>'
+		'From: Some organization <noreply@someorganization.org>'
 	);
 
 }
