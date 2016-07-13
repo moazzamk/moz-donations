@@ -1,0 +1,125 @@
+<?php
+
+/**
+ * Main view of Moz Donations
+ */
+
+return <<<HTML
+			<link rel="stylesheet" type="text/css" href="{$url}css/main.css"/>
+
+			<form id="moz-donations-form" name="moz-donations-form" method="post">
+				<input type="hidden" name="action" value="moz-donations-form-submit"/>
+				<input type="hidden" name="md-action" value="moz-donations-form-submit"/>
+				<input type="hidden" id="md-gateway" name="md-gateway" value="paypal-standard" />
+
+				<div id="moz-donations-errors" class="moz-donations-errors ui-state-error hidden">
+				</div>
+
+				<div class="float-left" style="margin-right: 40px">
+					<div>
+						<h3 class="moz-donations-h3">Amount:</h3>
+						<input type="text" placeholder="Enter an amount" name="md-amount" id="md-amount"/>
+					</div>
+					<div>
+						<h3 class="moz-donations-h3">Purpose:</h3>
+						<select name="md-reason" id="md-reason">
+							<option value="General">Select a purpose</option>
+							<option>General Donation</option>
+							<option>Zakah</option>
+							<option>Sadaqah</option>
+							<option>Sponsor a hafiz</option>
+							<option>Sponsor an alim</option>
+						</select>
+					</div>
+					<div>
+						<h3>Email:</h3>
+						<input type="text" name="md-email" id="md-email" placeholder="Enter an email address"/>
+					</div>
+				</div>
+				<div class="float-left">
+					<div>
+						<h3 class="moz-donations-h3">I want to make this donation:</h3>
+						<select name="md-payment-type" id="md-payment-type">
+							<option value="once">Once</option>
+							<option value="M">Monthly</option>
+							<option value="Y">Yearly</option>
+						</select>
+					</div>
+					<div id="md-recurring-duration-container" class="hidden">
+						<h3 class="moz-donations-h3">
+							How many <span id="md-recurring-duration-unit"></span>
+							would you like to donate for?
+						</h3>
+						<select name="md-recurring-duration-length">
+							<option value="9999">Perpetual</option>
+							<option>2</option>
+							<option>3</option>
+							<option>6</option>
+							<option>12</option>
+							<option>15</option>
+							<option>18</option>
+						</select>
+					</div>
+				</div>
+				<div class="clear-both"></div>
+
+
+				<h3 class="moz-donations-h3">
+					Select Payment Method:
+				</h3>
+				<div id="moz-donations-payment-gateways">
+					<ul>
+						$tabLabels
+					</ul>
+					$tabContents
+				</div>
+
+				<div style="margin-top: 20px">
+					<input type="submit" name="submit" value="Submit"/>
+				</div>
+			</form>
+
+			<div id="moz-donations-thank-you" class="hidden">
+				<h3>Thank you for your donation</h3>
+				<p>
+					You should receive a confirmation shortly.
+				</p>
+			</div>
+
+
+			<textarea id="loading-div-tmpl" class="hidden">
+				<div id="#{id}-loading-wrapper"
+					class="loading-wrapper hidden"
+					style="z-index: 4000; position: absolute !important;
+						   background-color: rgba(0,0,0,0.7) ;
+						   text-align: center; vertical-align: middle; 
+						   display: inline-block;">
+
+					<table border="0" height="100%" width="100%">
+						<tr>
+							<td style="vertical-align: middle; padding-left: auto; padding-right: auto;" align="center">
+								<div style="padding-left: auto;
+											padding-right: auto;
+											width: 100%;
+											background-image: url({$url}img/loading.gif);
+											background-repeat:  no-repeat;
+											height: 25px;
+											background-position: center;">
+								</div>
+
+							</td>
+						</tr>
+					</table>
+				</div>
+			</textarea>
+
+			<link rel="stylesheet" href="{$url}css/jquery-ui.css" />
+
+			<script type="text/javascript" src="{$url}js/jquery-ui.min.js"></script>
+			<script type="text/javascript" src="{$url}js/jquery.placeholder.js"></script>
+			<script type="text/javascript" src="{$url}js/jquery.loading.js"></script>
+			<script type="text/javascript">
+				var ajaxurl = '{$adminUrl}';
+			</script>
+			<script type="text/javascript" src="{$url}js/main.js"></script>
+HTML;
